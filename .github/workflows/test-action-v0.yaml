@@ -1,0 +1,18 @@
+name: Test Action major version v0
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: Test v0 major version - Dummy deploy
+        uses: joanplaja/action-template@v0
+        with:
+          app_name: Backend
+          environment: test
