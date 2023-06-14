@@ -1,0 +1,23 @@
+name: Basic Composite Action
+description: 'A basic composite action'
+
+inputs:
+  name:
+    description: 'Your name'
+    required: true
+    default: 'Joan'
+
+outputs:
+  greeting:
+    description: 'The generated greeting'
+    value: ${{ steps.generate-greeting.outputs.greeting }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Step 1
+      id: generate-greeting
+      shell: bash
+      run: |
+        echo "Hello, ${{ inputs.name }}!"
+        echo "::set-output name=greeting::Hello, ${{ inputs.name }}!" 
