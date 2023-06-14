@@ -1,0 +1,21 @@
+name: Test Action minor version v0.1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: Test v0.1 minor version - Greeting
+        id: greeting
+        uses: joanplaja/action-template@v0.1
+        with:
+          name: "Pau Lozano"
+
+      - name: Show greeting
+        run: echo ${{steps.greeting.outputs.greeting}}
